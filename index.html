@@ -1,0 +1,135 @@
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #171717;
+            --q:hsl(0, 100%, 50%);
+            --w:hsl(30, 100%, 50%);
+            --e:hsl(60, 100%, 50%);
+            --r:hsl(120, 100%, 50%);
+            --t:hsl(180, 100%, 50%);
+            --u:hsl(300, 100%, 50%);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .box{
+            position: relative;
+            /* left: calc(100%-80%);
+            bottom: calc(100%-70%); */
+            background-image: url("https://media.discordapp.net/attachments/929983498108932118/944126216129105940/output-onlinejpgtools.jpg?width=853&height=480");
+            background-size: cover;
+            width: 1280px;
+            height: 720px;
+            background-color: white;
+            border-radius: 15px;
+        }
+        #toggle-1{
+            position:absolute;
+            bottom:3%;
+            right:6%;
+            background:black;
+            padding:.5em;
+            border-radius:4px;
+            cursor:pointer;
+            color:white;
+            /* text-shadow: 1px 0px 1px white; */
+            font-family: 'Roboto Condensed', sans-serif;
+            /* transform: rotateZ(90deg);  */
+            border-radius:2px;
+            border: 10px solid;
+            border-image-slice: 1;
+            border-width: 2px;
+            border-image-source: linear-gradient(to right, gray, white);
+            animation: 0.5s  spin2 infinite
+        }
+        #toggle-2{
+            position:absolute;
+            bottom:3%;
+            right:1%;
+            background:transparent;
+            padding:.5em;
+            cursor:pointer;
+            color:white;
+            /* text-shadow: 1px 0px 1px black; */
+            font-family: 'Roboto Condensed', sans-serif;
+            /* transform: rotateZ(90deg);  */
+            border-radius:50px;
+            border: 10px solid;
+            border-image-slice: 1;
+            border-width: 2px;
+            border-image-source: linear-gradient(to right, var(--q), var(--w), var(--e), var(--r), var(--t), var(--y), var(--u));
+            animation: 0.5s spin infinite;
+            /* border-image-source: linear-gradient(to left, hsl(0, 100%, 50%), hsl(30, 100%, 50%), hsl(60, 100%, 50%), hsl(90, 100%, 50%), hsl(120, 100%, 50%), hsl(150, 100%, 50%), hsl(180, 100%, 50%), hsl(210, 100%, 50%), hsl(240, 100%, 50%), hsl(270, 100%, 50%), hsl(300, 100%, 50%)); */
+        }
+        #song{
+          position: absolute;
+          top: 10%;
+          right: 2%;
+          z-index: 30000;
+   	    }
+        .name{
+            color: white;
+            position: absolute;
+            top:0%;
+            right: 2%;
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+        @keyframes spin{
+            0% {border-image-source: linear-gradient(to right, var(--q), var(--w), var(--e), var(--r), var(--t), var(--u));
+            }
+            20% {border-image-source: linear-gradient(to right, var(--u), var(--q), var(--w), var(--e), var(--r), var(--t));
+            }
+            40% {border-image-source: linear-gradient(to right, var(--t), var(--u), var(--q), var(--w), var(--e), var(--r));
+            }
+            60% {border-image-source: linear-gradient(to right, var(--r), var(--t), var(--u), var(--q), var(--w), var(--e));
+            }
+            80% {border-image-source: linear-gradient(to right, var(--e), var(--r), var(--t), var(--u), var(--q), var(--w));
+            }
+            100% {border-image-source: linear-gradient(to right, var(--w), var(--e), var(--r), var(--t), var(--u), var(--q));
+            }
+        }
+        @keyframes spin2{
+            0% {border-image-source: linear-gradient(to right, gray, white, white , white, white)}
+            25% {border-image-source: linear-gradient(to right, white, gray, white, white, white)}
+            50% {border-image-source: linear-gradient(to right, white, white, gray , white, white)}
+            75% {border-image-source: linear-gradient(to right, white, white, white , gray, white)}
+            100% {border-image-source: linear-gradient(to right, white, white, white , white, gray)}
+        }
+    </style>
+    <script>
+        function light_on(){
+            document.querySelector(".box").style.backgroundImage = "url('https://media.discordapp.net/attachments/929983498108932118/944126220075950110/image_2022-02-18_135721.png?width=853&height=480')"
+            document.querySelector(".box").style.transition= "background 2s ease-out";
+        }
+        function light_off(){
+            document.querySelector(".box").style.backgroundImage = "url('https://media.discordapp.net/attachments/929983498108932118/944126216129105940/output-onlinejpgtools.jpg?width=853&height=480')"
+            document.querySelector(".box").style.transition= "background 2s ease-out";
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <div id="song">
+            <audio controls autoplay loop>
+              <source src="https://cdn.discordapp.com/attachments/929983498108932118/944137783310712862/y2meta.com_-_Playboi_Carti_-_ILoveUIHateU_Official_Audio_320_kbps_2.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+        <div class="name">
+            <h1>ILoveUIHateU</h1>
+        </div>
+        <button id="toggle-1" onclick="light_off()">
+            Light Off
+        </button>
+        <button id="toggle-2" onclick="light_on()">
+            Light On
+        </button>
+    </div>
+</body>
+</html>
